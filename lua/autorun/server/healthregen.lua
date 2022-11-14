@@ -16,7 +16,7 @@ end
 
 -- Registers a hook that regenerates player health like Modern Warfare
 -- Returns nil
-hook.Add("PlayerHurt", "healthregen", function(victim)
+hook.Add("PlayerHurt", "create_healthregen", function(victim)
 	timer.Create(getTimerIdentifier(victim), 10, 1, function()
 		if canRegenerateHealth(victim) then
 			victim:SetHealth(victim:GetMaxHealth())
