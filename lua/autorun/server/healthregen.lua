@@ -3,6 +3,12 @@
 -- Copyleft 2022 Garry's Mod Player. All rights reversed.
 
 -- Parameter player is a reference to an online player
+-- Returns true if that player can regenerate health, otherwise false
+local function canRegenerate(player)
+	return player:Alive() and player:Health() < player:GetMaxHealth()
+end
+
+-- Parameter player is a reference to an online player
 -- Returns a unique timer identifier for that player
 local function getIdentifier(player)
 	return "healthregen: " .. player:UserID()
@@ -12,12 +18,6 @@ end
 -- Returns current regeneration delay for that player
 local function getDelay(player)
 	return math.ceil((player:GetMaxHealth() - player:Health()) / 20) + 5
-end
-
--- Parameter player is a reference to an online player
--- Returns true if that player can regenerate health, otherwise false
-local function canRegenerate(player)
-	return player:Alive() and player:Health() < player:GetMaxHealth()
 end
 
 -- Registers a hook that regenerates player health like Modern Warfare
