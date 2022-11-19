@@ -17,7 +17,7 @@ end
 -- Parameter player is a reference to an online player
 -- Returns current regeneration delay for that player
 local function getDelay(player)
-	return math.ceil((player:GetMaxHealth() - player:Health()) / 10) + 10
+	return math.ceil((player:GetMaxHealth() - player:Health()) / 20) + 5
 end
 
 -- Registers a hook that regenerates player health like Modern Warfare
